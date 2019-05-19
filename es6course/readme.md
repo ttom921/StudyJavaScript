@@ -23,3 +23,6 @@ npm install && hb dev
 
 - logindemo 這是登人模組的demo
 - commondemo 這是公用模組的demo
+### chap04
+- es6-lesson 這是基本的實戰的基礎架構`hb create es6-lesson -w` 
+
