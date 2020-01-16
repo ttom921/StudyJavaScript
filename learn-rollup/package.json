@@ -4,9 +4,22 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "rollup -c ./rollup.config.js"
+    "build": "rollup -c",
+    "dev": "rollup -c --watch",
+    "pro": "cross-env NODE_ENV=produciton rollup -c",
+    "lint": "eslint  -c .eslintrc.json ./src/"
   },
   "author": "ttom",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.8.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
 }
