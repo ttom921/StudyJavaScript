@@ -12,12 +12,12 @@ export default {
         sourceMap: true // 'inline'
     },
     plugins: [
-        // eslint({
-        //     throwOnError: true,
-        //     throwOnWarning: false,
-        //     include: ['src/**'],
-        //     exclude: ['node_modules/**']
-        // }),
+        eslint({
+            throwOnError: true,
+            throwOnWarning: true,
+            include: ['src/**'],
+            exclude: ['node_modules/**']
+        }),
         babel({
             exclude: 'node_modules/**'
         }),
