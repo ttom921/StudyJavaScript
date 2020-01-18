@@ -3,6 +3,7 @@
 
 // Import a couple modules for testing.
 import util from './modules/util';
+import { apiUsersGet } from './modules/apiPublic';
 class Engine {
     constructor() {
         this.id = util.generatedId();
@@ -17,6 +18,23 @@ class Engine {
     }
     showAppid() {
         console.log('appid=' + this.appid);
+    }
+    GetUsers() {
+
+        //----------取得所有的使用者
+        apiUsersGet()
+            .then((res) => { console.log(res.data) })
+            .catch((error) => { console.error(error) })
+            .finally(() => { /* 不論失敗成功皆會執行 */ });
+        //-------------使用token來取得所有的使用者
+        apiUsersGet({
+            headers: {
+                Authorization: 'Bearer ' + this.appid //the token is a variable which holds the token
+            }
+        })
+            .then((res) => { console.log(res.data) })
+            .catch((error) => { console.error(error) })
+            .finally(() => { /* 不論失敗成功皆會執行 */ });
     }
 }
 //get Singleton
