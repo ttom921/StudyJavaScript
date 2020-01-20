@@ -3,7 +3,11 @@
 
 // Import a couple modules for testing.
 import util from './modules/util';
-import { apiUsersGet } from './modules/apiPublic';
+import {
+    apiPostsGet,
+    apiPostPost,
+    apiPostGet
+} from './modules/apiPublic';
 class Engine {
     constructor() {
         this.id = util.generatedId();
@@ -21,20 +25,49 @@ class Engine {
     }
     GetUsers() {
 
+        //#region 取得所有的使用者
+
         //----------取得所有的使用者
-        apiUsersGet()
+        // apiUsersGet()
+        //     .then((res) => { console.log(res.data) })
+        //     .catch((error) => { console.error(error) })
+        //     .finally(() => { /* 不論失敗成功皆會執行 */ });
+        // //-------------使用token來取得所有的使用者
+        // apiUsersGet({
+        //     headers: {
+        //         Authorization: 'Bearer ' + this.appid //the token is a variable which holds the token
+        //     }
+        // })
+        //     .then((res) => { console.log(res.data) })
+        //     .catch((error) => { console.error(error) })
+        //     .finally(() => { /* 不論失敗成功皆會執行 */ });
+
+        apiPostsGet()
             .then((res) => { console.log(res.data) })
             .catch((error) => { console.error(error) })
             .finally(() => { /* 不論失敗成功皆會執行 */ });
-        //-------------使用token來取得所有的使用者
-        apiUsersGet({
-            headers: {
-                Authorization: 'Bearer ' + this.appid //the token is a variable which holds the token
+
+        //end #region 取得所有的使用者
+        apiPostPost({
+
+            title: 'foo',
+            body: 'bar',
+            userId: 1
+
+        })
+            .then((res) => { console.log(res.data) })
+            .catch((error) => { console.error(error) })
+            .finally(() => { /* 不論失敗成功皆會執行 */ });
+
+        apiPostGet({
+            params: {
+                userId: 1
             }
         })
             .then((res) => { console.log(res.data) })
             .catch((error) => { console.error(error) })
             .finally(() => { /* 不論失敗成功皆會執行 */ });
+
     }
 }
 //get Singleton
