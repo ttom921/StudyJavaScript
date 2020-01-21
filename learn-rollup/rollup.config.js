@@ -2,10 +2,15 @@ import replace from "rollup-plugin-replace";
 import babel from 'rollup-plugin-babel';
 import { uglify } from "rollup-plugin-uglify";
 import { eslint } from "rollup-plugin-eslint";
+
 let ENV = 'development';
 export default {
     input: 'src/scripts/main.js',
     output: {
+        globals: {
+            'axios': 'axios',
+            'rxios': 'rxios'
+        },
         file: 'build/js/bundle.min.js',
         format: 'umd',
         name: 'monitor',
@@ -19,7 +24,7 @@ export default {
             exclude: ['node_modules/**']
         }),
         babel({
-            exclude: 'node_modules/**'
+            exclude: 'node_modules/**',
         }),
         replace({
             exclude: 'node_modules/**',

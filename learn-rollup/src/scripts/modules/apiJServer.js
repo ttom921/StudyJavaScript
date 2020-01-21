@@ -1,7 +1,18 @@
 import axios from 'axios';
 
-//User相關的api
-const userRequest = axios.create({
+//Post相關的api
+const postRequest = axios.create({
     baseURL: 'http://localhost:3000'
 });
-export const apiUsersGet = data => userRequest.get('/users', data);
+//C
+export const apiPostPost = data => postRequest.post('/posts', data);
+//R
+export const apiPostGet = data => postRequest.get('/posts', data);
+//U
+//export const apiPostPut = (url, data) => postRequest.put(url, data);
+export const apiPostPut = data => postRequest.put(`/posts/${data.id}`, data);
+export const apiPostPatch = data => postRequest.patch(`/posts/${data.id}`, data);
+//
+//Delete
+export const apiPostDelete = data => postRequest.delete(`/posts/${data.id}`, data);
+
