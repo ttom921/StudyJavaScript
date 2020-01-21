@@ -17,3 +17,7 @@
 ### learn-rollup
 
 學習如何使用Rollup的javascript的打包工具
+
+### learn-rollup2
+
+學習如何使用Rollup來打包typescript的工具
