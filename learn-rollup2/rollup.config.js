@@ -4,7 +4,10 @@ import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 let ENV = 'development';
 export default {
-    input: "src/index.ts",
+    input: [
+        "src/index.ts",
+    ],
+
     output: [
         // {
         //     file: "dist/index.esm.browser.js",
@@ -21,6 +24,7 @@ export default {
     plugins: [
         commonjs(),
         resolve(),
+
         babel({
             exclude: [/\/core-js\//],
             runtimeHelpers: true,
