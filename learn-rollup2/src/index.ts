@@ -1,9 +1,6 @@
 import { ajax } from 'rxjs/ajax';
 import { Observable } from 'rxjs';
 import { delay } from "rxjs/operators";
-interface ajacConfig {
-    url: string
-}
 class Engine {
     //#region Singleton
     private static _instance: Engine = null;
