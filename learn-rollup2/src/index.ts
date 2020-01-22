@@ -1,3 +1,4 @@
+import { ajax } from 'rxjs/ajax';
 class Engine {
     //#region Singleton
     private static _instance: Engine = null;
@@ -16,6 +17,17 @@ class Engine {
     }
     showAppid() {
         console.log('appid=' + this._appid);
+    }
+    getAjaxTest() {
+        const githubUsers = `https://api.github.com/users?per_page=2`;
+
+        const users = ajax(githubUsers);
+
+        const subscribe = users.subscribe(
+            res => console.log(res),
+            err => console.error(err)
+        );
+
     }
 }
 export default Engine;
