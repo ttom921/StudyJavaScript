@@ -1,7 +1,5 @@
-import { ajax } from 'rxjs/ajax';
-import { Observable } from 'rxjs';
 import { delay } from "rxjs/operators";
-
+import { RxjsWrapper } from "./module/rxjsWrapper"
 class Engine {
     //#region Singleton
     private static _instance: Engine = null;
@@ -88,26 +86,3 @@ class Engine {
     }
 }
 export default Engine;
-class RxjsWrapper {
-    constructor() {
-    }
-    get(url: string): Observable<any> {
-        return ajax.getJSON(url);
-        // const subscribe = users.subscribe(
-        //     res => console.log(res),
-        //     err => console.error(err)
-        // );
-    }
-    post(url: string, body?: any, headers?: Object) {
-        return ajax.post(url, body, headers);
-    }
-    put(url: string, body?: any, headers?: Object) {
-        return ajax.put(url, body, headers);
-    }
-    patch(url: string, body?: any, headers?: Object) {
-        return ajax.patch(url, body, headers);
-    }
-    delete(url: string, headers?: Object) {
-        return ajax.delete(url, headers);
-    }
-}
