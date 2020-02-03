@@ -1554,6 +1554,9 @@
     }, {
       key: "getAjaxTest",
       value: function getAjaxTest() {
+        //var aWindow: Window = window.open("http://localhost:3000", "Window", "");
+        // var mywin: Window = window.open("about:blank", "redirect");
+        // someCallback("http://localhost:3000");
         //crud
         var url = "http://localhost:3000/posts";
         var rxajax = new RxjsWrapper();

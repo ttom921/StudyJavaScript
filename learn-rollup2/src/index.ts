@@ -1,6 +1,7 @@
 import { ajax } from 'rxjs/ajax';
 import { Observable } from 'rxjs';
 import { delay } from "rxjs/operators";
+
 class Engine {
     //#region Singleton
     private static _instance: Engine = null;
@@ -21,6 +22,11 @@ class Engine {
         console.log('appid=' + this._appid);
     }
     getAjaxTest() {
+
+        //var aWindow: Window = window.open("http://localhost:3000", "Window", "");
+        // var mywin: Window = window.open("about:blank", "redirect");
+
+        // someCallback("http://localhost:3000");
         //crud
         let url = `http://localhost:3000/posts`;
 
@@ -78,7 +84,6 @@ class Engine {
                 console.log(data);
             }
         );
-
     }
 }
 export default Engine;
