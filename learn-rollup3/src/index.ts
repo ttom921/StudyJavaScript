@@ -16,6 +16,7 @@ class Engine {
     private _appid: string;
 
     init(appid: string) {
+        //console.log('init');
         this._appid = appid;
     }
     showAppid() {

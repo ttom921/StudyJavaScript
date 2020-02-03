@@ -2,6 +2,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
+import { terser } from "rollup-plugin-terser";
+let ENV = 'development';
 
 const extensions = [
     '.js', '.jsx', '.ts', '.tsx',
@@ -25,20 +27,16 @@ export default {
 
         // Compile TypeScript/JavaScript files
         babel({ extensions, include: ['src/**/*'] }),
+        (process.env.NODE_ENV === 'produciton' && terser())
     ],
 
-    output: [{
-        file: pkg.main,
-        format: 'cjs',
-    }, {
-        file: pkg.module,
-        format: 'es',
-    }, {
-        file: pkg.browser,
-        format: 'iife',
-        name: 'monitor',
+    output: [
+        {
+            file: pkg.browser,
+            format: 'iife',
+            name: 'monitor',
 
-        // https://rollupjs.org/guide/en#output-globals-g-globals
-        globals: {},
-    }],
+            // https://rollupjs.org/guide/en#output-globals-g-globals
+            globals: {},
+        }],
 };
