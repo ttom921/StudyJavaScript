@@ -1,0 +1,8 @@
+{
+    "liveServer.settings.root": "./dist/", //設定根目錄
+    // "liveServer.settings.proxy": {
+    //     "enable": true,
+    //     "baseUri": "/v0.4",
+    //     "proxyUri": "http://64.141.182.94:80"
+    // }
+}
