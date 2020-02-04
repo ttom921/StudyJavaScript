@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 export class RxjsWrapper {
     constructor() {
     }
-    get(url: string): Observable<any> {
-        return ajax.getJSON(url);
+    get(url: string, headers?: Object): Observable<any> {
+        return ajax.getJSON(url, headers);
         // const subscribe = users.subscribe(
         //     res => console.log(res),
         //     err => console.error(err)
